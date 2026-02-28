@@ -1,2 +1,3 @@
 hello
 new line added in feature_1
+updated feature_1 after feature_2 is merge
