@@ -85,12 +85,12 @@
 								"waitOnCompletion": true,
 								"parameters": {
 									"pp_fileSystem": "project1",
-									"pp_directory_in": "output",
+									"pp_directory_in": "input",
 									"pp_filename": {
 										"value": "@item().name",
 										"type": "Expression"
 									},
-									"pp_directory_out": "archive"
+									"pp_directory_out": "output"
 								}
 							}
 						}
