@@ -67,78 +67,31 @@
 							}
 						},
 						{
-							"name": "Copy data1",
-							"type": "Copy",
+							"name": "Execute Pipeline1",
+							"type": "ExecutePipeline",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
 								"secureInput": false
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"source": {
-									"type": "DelimitedTextSource",
-									"storeSettings": {
-										"type": "AzureBlobFSReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									},
-									"formatSettings": {
-										"type": "DelimitedTextReadSettings"
-									}
+								"pipeline": {
+									"referenceName": "parameter_pipeline",
+									"type": "PipelineReference"
 								},
-								"sink": {
-									"type": "DelimitedTextSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
+								"waitOnCompletion": true,
+								"parameters": {
+									"pp_fileSystem": "project1",
+									"pp_directory_in": "output",
+									"pp_filename": {
+										"value": "@item().name",
+										"type": "Expression"
 									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
-									}
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
+									"pp_directory_out": "archive"
 								}
-							},
-							"inputs": [
-								{
-									"referenceName": "adls_parameter_dataset",
-									"type": "DatasetReference",
-									"parameters": {
-										"ds_filesystems": "project1",
-										"ds_directory": "input",
-										"ds_filename": {
-											"value": "@item().name",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "adls_parameter_dataset",
-									"type": "DatasetReference",
-									"parameters": {
-										"ds_filesystems": "project1",
-										"ds_directory": "output",
-										"ds_filename": {
-											"value": "@item().name",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+							}
 						}
 					]
 				}
