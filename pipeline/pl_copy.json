@@ -3,12 +3,12 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "input_to_output",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
+					"timeout": "7.00:00:00",
+					"retry": 3,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
 					"secureInput": false
