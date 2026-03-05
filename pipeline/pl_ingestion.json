@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from [project].[config]\nwhere status = 'active' and project = 'sales';\n",
+						"sqlReaderQuery": "select * from [project].[config]\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -47,42 +47,6 @@
 					},
 					"isSequential": false,
 					"activities": [
-						{
-							"name": "Execute Pipeline1",
-							"type": "ExecutePipeline",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
-							"dependsOn": [],
-							"policy": {
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"pipeline": {
-									"referenceName": "parameter_pipeline",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true,
-								"parameters": {
-									"pp_fileSystem": {
-										"value": "@item().src_cont",
-										"type": "Expression"
-									},
-									"pp_directory_in": {
-										"value": "@item().src_dir",
-										"type": "Expression"
-									},
-									"pp_filename": {
-										"value": "@item().filename",
-										"type": "Expression"
-									},
-									"pp_directory_out": {
-										"value": "@item().tgt_dir\r\n",
-										"type": "Expression"
-									}
-								}
-							}
-						},
 						{
 							"name": "Wait1",
 							"type": "Wait",
