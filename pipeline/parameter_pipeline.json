@@ -5,6 +5,8 @@
 			{
 				"name": "Copy data1",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -101,21 +103,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/deepakind777@gmail.com/practice-1",
-					"baseParameters": {
-						"pp_fileSystem": {
-							"value": "@pipeline().parameters.pp_fileSystem",
-							"type": "Expression"
-						},
-						"pp_directory": {
-							"value": "@pipeline().parameters.pp_directory_in",
-							"type": "Expression"
-						},
-						"pp_filename": {
-							"value": "@pipeline().parameters.pp_filename",
-							"type": "Expression"
-						}
-					}
+					"notebookPath": "/Users/deepakind777@gmail.com/practice-1"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
