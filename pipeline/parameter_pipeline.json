@@ -87,6 +87,40 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "test_notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/deepakind777@gmail.com/practice-1",
+					"baseParameters": {
+						"pp_fileSystem": {
+							"value": "@pipeline().parameters.pp_fileSystem",
+							"type": "Expression"
+						},
+						"pp_directory": {
+							"value": "@pipeline().parameters.pp_directory_in",
+							"type": "Expression"
+						},
+						"pp_filename": {
+							"value": "@pipeline().parameters.pp_filename",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"parameters": {
