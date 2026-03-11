@@ -103,7 +103,12 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/deepakind777@gmail.com/practice-1"
+					"notebookPath": "/Users/deepakind777@gmail.com/practice-1",
+					"baseParameters": {
+						"pp_fileSystem": "project1",
+						"pp_directory": "input",
+						"pp_filename": "SalesLTProduct.txt"
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
